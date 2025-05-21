@@ -1,0 +1,249 @@
+/* Main Website Sidebar Styles */
+
+:root {
+    --sidebar-width: 280px;
+    --primary-color: #343a40;
+    --secondary-color: #6c757d;
+    --accent-color: #007bff;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --transition-speed: 0.3s;
+
+    /* Font Family Variables - Matching main site */
+    --primary-font: 'Poppins', sans-serif;
+    --heading-font: 'Playfair Display', serif;
+    --accent-font: 'Lora', serif;
+}
+
+/* Global Font Settings */
+.sidebar-content {
+    font-family: var(--primary-font);
+}
+
+.sidebar-heading {
+    font-family: var(--heading-font);
+}
+
+/* Sidebar Layout */
+.main-sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: var(--sidebar-width);
+    height: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    z-index: 1050;
+    transition: left var(--transition-speed);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+.main-sidebar.active {
+    left: 0;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar-logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.sidebar-close {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* User Section */
+.sidebar-user {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-info, .guest-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.user-info i, .guest-info i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.user-actions, .guest-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Sidebar Menu */
+.sidebar-menu {
+    flex: 1;
+    padding: 20px 0;
+}
+
+.sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    margin-bottom: 5px;
+}
+
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.sidebar-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.sidebar-menu li.active a {
+    background-color: var(--accent-color);
+    color: white;
+    border-left: 4px solid white;
+}
+
+.sidebar-menu li a i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+    min-width: 25px;
+    text-align: center;
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.social-icon {
+    color: white;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: var(--accent-color);
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1040;
+}
+
+.sidebar-toggle button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 1.2rem;
+}
+
+/* Sidebar Overlay */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1045;
+    display: none;
+}
+
+.sidebar-overlay.active {
+    display: block;
+}
+
+/* Main Content Adjustment */
+.main-content {
+    transition: margin-left var(--transition-speed);
+}
+
+.main-content.shifted {
+    margin-left: var(--sidebar-width);
+}
+
+/* Responsive Styles */
+@media (min-width: 992px) {
+    .main-sidebar {
+        left: 0;
+    }
+
+    .main-content {
+        margin-left: var(--sidebar-width);
+    }
+
+    .sidebar-toggle {
+        display: none;
+    }
+
+    .sidebar-overlay {
+        display: none !important;
+    }
+
+    .sidebar-close {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    .main-content {
+        margin-left: 0;
+    }
+
+    .main-sidebar {
+        left: -100%;
+    }
+
+    .main-sidebar.active {
+        left: 0;
+    }
+}

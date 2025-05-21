@@ -1,0 +1,67 @@
+:root{
+    --teal: #3b8b96;
+    --teal_hover: #38a9b8;
+
+    /* Font Family Variables */
+    --primary-font: 'Poppins', sans-serif;
+    --heading-font: 'Playfair Display', serif;
+    --accent-font: 'Lora', serif;
+}
+
+/* Global Font Settings */
+body {
+    font-family: var(--primary-font);
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    font-weight: 600;
+}
+
+.h-font {
+    font-family: var(--heading-font);
+}
+
+.p-font {
+    font-family: var(--primary-font);
+}
+
+.a-font {
+    font-family: var(--accent-font);
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+.swiper-slide {
+    height: 500px; /* Change this to your desired height */
+}
+.swiper-slide img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /* Makes the image cover the slide area */
+}
+.custom-bg{
+    background-color:var(--teal);
+    border:1px solid var(--teal);
+}
+.custom-bg:hover{
+    background-color: var(--teal_hover);
+    border-color: var(--teal_hover);
+}
+.h-line{
+    width: 150px;
+    margin: 0 auto;
+    height: 1.7px;
+  }
